@@ -33,7 +33,7 @@ public class FoxHoundUI {
         Objects.requireNonNull(stdin, "Given Scanner must not be null");
         if (figureToMove != FoxHoundUtils.FOX_FIELD && figureToMove != FoxHoundUtils.HOUND_FIELD) {
             throw new IllegalArgumentException("Given figure field invalid: " + figureToMove);
-        }
+        }//gives error if not H or F
 
         String nextFigure = figureToMove == FoxHoundUtils.FOX_FIELD ? "Fox" : "Hounds";
 
