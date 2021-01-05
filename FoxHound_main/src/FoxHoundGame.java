@@ -19,49 +19,53 @@ public class FoxHoundGame {
 
         char turn = FoxHoundUtils.FOX_FIELD;
         boolean exit = false;
-
+        int choice;
         while (!exit) {
             System.out.println("\n#################################");
             FoxHoundUI.displayBoard(players, dim);
             // Print the board
 
-            int choice = FoxHoundUI.mainMenuQuery(turn, STDIN_SCAN);
-
+            choice = FoxHoundUI.mainMenuQuery(turn, STDIN_SCAN);
+//            int choice = 1;
+//hgh
             switch (choice) {
-            case FoxHoundUI.MENU_MOVE:
-                while (true) {
-                    String[] step = FoxHoundUI.positionQuery(dim, STDIN_SCAN);
-                    // Get the input step
-                    String before = step[0];
-                    String after = step[1];
+                case FoxHoundUI.MENU_MOVE:
+                    while (true) {
+//                    String[] step = FoxHoundUI.positionQuery(dim, STDIN_SCAN);
+                        // Get the input step
+//                    String before = step[0];
+//                    String after = step[1];
+                        String before = "A1";
+                        String after = "b3";
 
-                    if (FoxHoundUtils.isValidMove(dim, players, turn, before, after)) {
-                        players[FoxHoundUtils.searchKey(players, before)] = after;
-                        // Change original player to new one
-                        break;
-                    } else {
-                        System.out.println("Invalid move");
+                        if (FoxHoundUtils.isValidMove(dim, players, turn, before, after)) {
+                            players[FoxHoundUtils.searchKey(players, before)] = after;
+                            // Change original player to new one
+                            break;
+                        } else {
+                            System.out.println("Invalid move");
+                            break;
+                        }
                     }
-                }
-                turn = swapPlayers(turn);
-
-                if (FoxHoundUtils.isFoxWin(players[players.length - 1])) {
-                    System.out.println("The Fox wins!");
+                    turn = swapPlayers(turn);
+//
+//                if (FoxHoundUtils.isFoxWin(players[players.length - 1])) {
+//                    System.out.println("The Fox wins!");
+//                    exit = true;
+//                }
+//                if (FoxHoundUtils.isHoundWin(players, dim)) {
+//                    System.out.println("The Hound wins!");
+//                    exit = true;
+//                }
+//                // Check if any players win
+                    break;
+                case FoxHoundUI.MENU_EXIT:
                     exit = true;
-                }
-                if (FoxHoundUtils.isHoundWin(players, dim)) {
-                    System.out.println("The Hound wins!");
-                    exit = true;
-                }
-                // Check if any players win
-                break;
-            case FoxHoundUI.MENU_EXIT:
-                exit = true;
-                break;
+                    break;
 
-            default:
-                System.err.println("ERROR: invalid menu choice: " + choice);
-                //Choice is not valid
+                default:
+                    System.err.println("ERROR: invalid menu choice: " + choice);
+                    //Choice is not valid
             }
         }
     }
