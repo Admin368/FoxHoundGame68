@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="EZ0_Rebuild:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/EZ0_Rebuild_jar</output-path>
+    <root id="archive" name="EZ0_Rebuild.jar">
+      <element id="module-output" name="EZ0_Rebuild" />
+    </root>
+  </artifact>
+</component>
