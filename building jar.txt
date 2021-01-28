@@ -1,0 +1,1 @@
+https://www.jetbrains.com/help/idea/compiling-applications.html#run_packaged_jar
